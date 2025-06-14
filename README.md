@@ -1,4 +1,4 @@
-# 🏏 IPL Data Analysis Project (2008–2022)
+# 🏏 IPL Data Analyst Project (2008–2022)
 
 A comprehensive end-to-end data analysis project on the Indian Premier League (IPL), analyzing match data from 2008 to 2022 using Python, Power BI, and SQL. The goal is to extract actionable insights about team performance, player statistics, toss impact, and more.
 
