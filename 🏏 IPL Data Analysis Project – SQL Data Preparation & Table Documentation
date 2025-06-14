@@ -1,0 +1,153 @@
+🏏 IPL Data Analysis Project – SQL Data Preparation & Table Documentation
+
+📌 Section 1: Project Overview
+
+The Indian Premier League (IPL) is one of the most popular T20 cricket leagues globally. This data analysis project aims to explore IPL match and ball-by-ball data using SQL, and later integrate it with Power BI to create interactive dashboards.
+
+This document outlines the SQL-based data preparation process, including:
+
+Table creation
+
+Data import using COPY
+
+File structure organization
+
+Assumptions and best practices
+
+🗃️ Section 2: Dataset Description
+
+We are using two main datasets:
+
+Dataset Name
+
+Description
+
+ipl_matches_2008_2022.csv
+
+Match-level data from 2008 to 2022
+
+ipl_ball_by_ball_2008_2022.csv
+
+Ball-level data for every delivery from 2008 to 2022
+
+🛠️ Section 3: SQL Table Creation
+
+🎯 Table 1: ipl_matches_2008_2022
+
+This table stores summary information of each IPL match.
+
+CREATE TABLE ipl_matches_2008_2022 (
+    id BIGINT PRIMARY KEY,
+    city VARCHAR(50),
+    match_date DATE,
+    season VARCHAR(50),
+    match_number VARCHAR(50),
+    team1 VARCHAR(50),
+    team2 VARCHAR(50),
+    venue VARCHAR(100),
+    toss_winner VARCHAR(50),
+    toss_decision VARCHAR(50),
+    superover VARCHAR(50),
+    winning_team VARCHAR(50),
+    won_by VARCHAR(50),
+    margin VARCHAR(50),
+    method VARCHAR(50),
+    player_of_match VARCHAR(50),
+    umpire1 VARCHAR(50),
+    umpire2 VARCHAR(50)
+);
+
+💡 Each row represents one IPL match.
+
+🎯 Table 2: ipl_ball_by_ball_2008_2022
+
+This table contains detailed delivery-wise information for all matches.
+
+CREATE TABLE ipl_ball_by_ball_2008_2022 (
+    id BIGINT NOT NULL,
+    innings BIGINT,
+    overs BIGINT,
+    ball_number BIGINT,
+    batter VARCHAR(50),
+    bowler VARCHAR(50),
+    non_striker VARCHAR(50),
+    extra_type VARCHAR(50),
+    batsman_run BIGINT,
+    extras_run BIGINT,
+    total_run BIGINT,
+    non_boundry BIGINT,
+    iswicket_delivery BIGINT,
+    player_out VARCHAR(50),
+    dismisal_kind VARCHAR(50),
+    fielders_involved VARCHAR(50),
+    batting_team VARCHAR(50)
+);
+
+💡 Each row represents a ball bowled during an IPL match.
+
+📅 Section 4: Data Import Using SQL
+
+Use the COPY command to load CSV data into PostgreSQL tables.
+
+✅ Import Match Data
+
+COPY ipl_matches_2008_2022
+FROM 'D:\ipl_matches_2008_2022.csv'
+DELIMITER ','
+CSV HEADER;
+
+✅ Import Ball-by-Ball Data
+
+COPY ipl_ball_by_ball_2008_2022
+FROM 'D:\ipl_ball_by_ball_2008_2022.csv'
+DELIMITER ','
+CSV HEADER;
+
+⚠️ Note: Replace the file paths with your actual file locations. For local psql import, use \COPY.
+
+📁 Section 5: Suggested Project Structure
+
+ipl-data-analysis/
+│
+├── data/
+│   ├── ipl_matches_2008_2022.csv
+│   └── ipl_ball_by_ball_2008_2022.csv
+│
+├── sql/
+│   ├── 01_create_tables.sql
+│   └── 02_import_data.sql
+│
+├── docs/
+│   └── 01_Data_Preparation.md
+│
+├── powerbi-dashboard/
+│   └── IPL_Insights.pbix
+│
+└── README.md
+
+🧠 Section 6: Assumptions & Tips
+
+Primary Key: id in both tables links match metadata with ball data.
+
+Data Cleanliness: Validate imported data using SELECT COUNT(*) and sample checks.
+
+CSV Format: Files should use UTF-8 encoding and include a header row.
+
+Permissions: COPY requires PostgreSQL server file access. Use \COPY for client-side loading.
+
+📊 Coming Up Next
+
+In the next phase, we will:
+
+Perform Exploratory SQL Analysis
+
+Identify Key Performance Indicators (KPIs), such as:
+
+Most runs, most wickets, most wins
+
+Toss impact, win margins, venue dominance
+
+Build Interactive Power BI Dashboards
+
+Would you like to proceed with the README.md or begin documenting SQL-based EDA and insights?
+
