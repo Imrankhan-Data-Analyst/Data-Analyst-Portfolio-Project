@@ -73,6 +73,80 @@ Edit
 
 ---
 
+## 📉 Power BI Dashboard
+
+📌 Snapshot of the interactive Power BI dashboard (see `reports/IPL_PowerBI_Dashboard.png`):
+
+![IPL Dashboard](./reports/IPL_PowerBI_Dashboard.png)
+![Screenshot 2025-06-12 235632](https://github.com/user-attachments/assets/cbb4d5bb-f802-4ad7-872f-1abb090aa4e2)
+
+**Features:**
+
+- Filters by season
+- Selectable batsman/bowler with stats
+- Donut charts for toss & match result impact
+- Bar charts for venue/team wins
+- Key caps and awards overview
+
+---
+
+## 🧹 Data Cleaning & Preparation
+
+Performed using `data_cleaning.py` and in the Jupyter notebook:
+
+- Loaded CSVs using `pandas`
+- Checked for and handled missing/null values
+- Unified formats (team names, venue names, etc.)
+- Created summary tables (batting, bowling, match-level)
+
+---
+
+## 📊 Exploratory Data Analysis (EDA)
+
+Conducted in `ipl_analysis.ipynb`, including:
+
+- Top batsman by total runs, 6s, 4s, strike rate
+- Top bowlers by wickets, economy, average
+- Team-level win stats and seasonal performance
+- Toss vs Win correlation analysis
+- Venue-based match outcome distributions
+
+---
+
+## 📤 Outputs
+
+- `summary_tables.csv` — final summary statistics
+- Power BI visuals (static + dynamic filters)
+- Scripts and notebooks for reproducibility
+
+---
+
+## 🔮 Future Enhancements
+
+- [ ] Add season-wise filters in Jupyter
+- [ ] Host interactive Power BI dashboard on web
+- [ ] Implement SQL-powered dashboard (Azure/BigQuery)
+- [ ] Automate updates for upcoming IPL seasons
+
+---
+
+## 📘 License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+## 🚀 Getting Started
+
+1. Clone the repository  
+   ```bash
+   git clone https://github.com/Imrankhan-Data-Analyst/ipl-data-analysis.git
+
+
+
+
+
+
 
 
 
